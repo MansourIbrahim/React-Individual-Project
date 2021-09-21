@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, { useEffect, useContext} from 'react'
 import { SearchForm } from './SearchForm';
 import { EventCard } from './EventCard';
 import { EventContext } from '../MyEventContext';
@@ -7,7 +7,7 @@ import { HomePageEventsContext } from '../HomePageEventsContext';
 export const HomePage = () => {
 
     
-    const URL = `https://app.ticketmaster.com/discovery/v2/events.json?size=3&apikey=RyPPLe0Rw96TWyPQdWFlQ3LFIkgS1mhZ`;
+    const URL = `https://app.ticketmaster.com/discovery/v2/events.json?size=3&apikey=${process.env.REACT_APP_EVENTSSEARCH_API_KEY}`;
     const [homePageEvents, setHomePageEvents] = useContext(HomePageEventsContext);
     const [myEventsIds, setMyEventsIds] = useContext(EventContext);
 

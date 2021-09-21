@@ -27,7 +27,7 @@ export const MyEventsList = () => {
 
 
             const promises = myEventsIds.map((myEventId) => 
-                fetch(`https://app.ticketmaster.com/discovery/v2/events?apikey=RyPPLe0Rw96TWyPQdWFlQ3LFIkgS1mhZ&id=${myEventId}&locale=*`)
+                fetch(`https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.REACT_APP_EVENTSSEARCH_API_KEY}&id=${myEventId}&locale=*`)
                 .then((response) => response.json())
                 .then((data) =>  data._embedded.events)
             )
@@ -41,7 +41,7 @@ export const MyEventsList = () => {
 
     return (
         <div className="events-container">
-             {myEvents.length === 0 ? <p>You didn't save any event</p> : 
+             {myEvents.length === 0 ?<div className="no-Event"> <p className>You didn't save any event</p> </div>: 
               myEvents.map((event) =>{
                 return (
                  <EventCard props={event} deleteEvent={deleteEvent} isMyEvent={isMyEvent} key={event.id}/>

@@ -9,9 +9,9 @@ export const SearchForm = () => {
     const [homePageEvents, setHomePageEvents] = useContext(HomePageEventsContext);
 
 
-    const allParametersURL =`https://app.ticketmaster.com/discovery/v2/events?apikey=RyPPLe0Rw96TWyPQdWFlQ3LFIkgS1mhZ&keyword=${eventKeyword}&locale=*&size=5&classificationName=${eventClassification}`
-    const keywordURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=RyPPLe0Rw96TWyPQdWFlQ3LFIkgS1mhZ&keyword=${eventKeyword}&locale=*&size=5`
-    const classificationNameURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=RyPPLe0Rw96TWyPQdWFlQ3LFIkgS1mhZ&locale=*&size=5&classificationName=${eventClassification}`
+    const allParametersURL =`https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.REACT_APP_EVENTSSEARCH_API_KEY}&keyword=${eventKeyword}&locale=*&size=5&classificationName=${eventClassification}`
+    const keywordURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.REACT_APP_EVENTSSEARCH_API_KEY}&keyword=${eventKeyword}&locale=*&size=5`
+    const classificationNameURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.REACT_APP_EVENTSSEARCH_API_KEY}&locale=*&size=5&classificationName=${eventClassification}`
 
 
 
@@ -54,30 +54,38 @@ export const SearchForm = () => {
     }
 
     return (
-        <div>
+        <div className="form-container">
+
+
             <form onSubmit={(e) => onSubmit(e, eventKeyword, eventClassification)}>
-                <input
-                    type="text"
-                    value={eventKeyword}
-                    onChange={(event) => setEventKeyword(event.target.value)}
-                    placeholder="Type Event Keyword"
-                />
+                <div className="form-text-input" >
+                    <input
+                        type="text"
+                        value={eventKeyword}
+                        onChange={(event) => setEventKeyword(event.target.value)}
+                        placeholder="Type Event Keyword"
+                    />
 
-                <input
-                    type="text"
-                    value={eventClassification}
-                    onChange={(event) => setClassification(event.target.value)}
-                    placeholder="Type Event Classification"
-                />
+                    <input
+                        type="text"
+                        value={eventClassification}
+                        onChange={(event) => setClassification(event.target.value)}
+                        placeholder="Type Event Classification"
+                    />
+                </div>
 
-                <input type="submit" value="Search" />
-                
-            </form>
-
-            {noParameters === true ?
+                {noParameters === true ?
             <p>Please, Type related keyword or Classification</p> :
             searchedEvents.page?.totalElements === 0  &&  !searchedEvents._embedded &&
             <p>Can not find related events</p> }
+
+
+                <div className="form-submit-input">
+                 <input type="submit" value="Search" />
+                </div>
+            </form>
+
+           
             
         </div>
     )

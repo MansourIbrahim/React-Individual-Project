@@ -49,7 +49,7 @@ export const Nav = () => {
         <img className='messenger-icon' src="https://icon-library.com/images/facebook-messenger-icon-vector/facebook-messenger-icon-vector-21.jpg" alt="messenger" />
         <img className='notif-icon' src="https://i.dlpng.com/static/png/6725689_preview.png" alt="notif" />
         <img className='account-icon' src="https://cdn2.iconfinder.com/data/icons/facebook-51/32/FACEBOOK_LINE-01-512.png" alt="account" />
-        <img className='menu-icon' src="http://assets.stickpng.com/images/588a6507d06f6719692a2d15.png" alt="menu" />
+        <img className='menu-icon' src="https://icon-library.com/images/hamburger-menu-icon-free/hamburger-menu-icon-free-2.jpg" alt="menu" />
       </div>
     </div>
   );
