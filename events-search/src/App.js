@@ -1,16 +1,26 @@
 import './App.css';
 import { HomePage } from './components/HomePage';
-import { SearchForm } from './components/SearchForm';
-import { EventProvider } from './EventContext'
+import { MyEventsList } from './components/MyEventsList';
+import { HomePageEventsProvider } from './HomePageEventsContext';
+import { EventProvider } from './MyEventContext';
+import { Nav } from './components/Nav';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <EventProvider>
-        <HomePage />
-        <SearchForm />
-      </EventProvider>
-    </div>
+    <Router>
+      <div className="App">
+        <Nav />
+        <HomePageEventsProvider>
+          <EventProvider>
+            <Switch>
+             <Route path="/" exact component={HomePage}/>
+             <Route path="/myevents" exact component={MyEventsList}/>
+            </Switch>
+          </EventProvider>
+        </HomePageEventsProvider>
+      </div>
+    </Router>
   );
 }
 
