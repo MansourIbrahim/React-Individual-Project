@@ -155,7 +155,6 @@ font-family: Arial, Helvetica, sans-serif;
   justify-content: space-between;
   align-items: center;
   color: #86888b;
-
 }
 
 .form-text-input input{
@@ -249,6 +248,10 @@ text-align: left;
   color: #1877F2;
 }
 
+.title-link{
+  text-decoration: none;
+}
+
 .event-card .text-container h4{
   font-family:  Arial, Helvetica, sans-serif;
   padding: 0px;
@@ -266,8 +269,17 @@ text-align: left;
 }
 
 .event-card .text-container p{
-  margin: 5px 0 10px 20px;
+  margin: 20px 0 10px 40px;
   
+}
+
+.more-info{
+  font-family:  Arial, Helvetica, sans-serif;
+  display: block;
+  margin: 5px 20px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #1877F2;
 }
 
 .event-card .text-container span{
